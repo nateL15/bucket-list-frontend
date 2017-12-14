@@ -43,6 +43,7 @@ const signInSuccess = function (data) {
   console.log('User data is ', data)
   $('.auth-message').text('Sign in success').show().hide(10000)
   $('.change-out').show()
+  $('.sign-up-in').hide()
   clearIn()
 }
 
