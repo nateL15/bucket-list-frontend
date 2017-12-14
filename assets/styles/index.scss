@@ -1,13 +1,17 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-form {
-  display: inline-block;
-}
+// form {
+//   display: inline-block;
+// }
 
 .form-group {
   padding-bottom: 25px;
   text-align: center;
+  width: 500px;
+  border: 10px solid black;
+  background-color: red;
+  margin: 0 auto;
 }
 
 .close {
