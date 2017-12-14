@@ -1,24 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bucket List</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bucket List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Do not add `link` tags-->
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-<!-- Do not add `script` tags-->
-<script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-<script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 
-<body>
-<header>
-  <h1>Bucket list</h1>
-</header>
+<body class="container-fluid">
+  <!-- Sign up and sign in container -->
+  <div class='sign-up-in'>
+    <div class="dropdown sign-up">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             sign up
+           </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <form id="sign-up">
+          <fieldset>
+            <input type="email" id="sign-up-email" name="credentials[email]" placeholder="Email">
+            <input type="password" id="sign-up-password" name="credentials[password]" placeholder="Password">
+            <input type="password" id="sign-up-password-confirmation" name="credentials[password_confirmation]" placeholder="Password Confirmation">
+            <button type="submit" class="btn btn-secondary">sign up</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
 
+    <div class="dropdown sign-in">
+      <button class="btn btn-secondary dropdown-toggle in-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               sign in
+             </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <form id="sign-in">
+          <fieldset>
+            <input type="email" id="sign-in-email" name="credentials[email]" placeholder="Email">
+            <input type="password" id="sign-in-password" name="credentials[password]" placeholder="Password">
+            <button type="submit" class="btn btn-secondary">sign in</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <p class='auth-message'></p>
+  </div>
+
+
+
+  <!-- To Do list container -->
+  <div class='todo'>
     <div class="form-group">
       <h1>To-Do <small>List</small></h1>
     <form role="form">
@@ -28,82 +61,30 @@
         </div>
 
     <ul class="list-unstyled" id="todo"></ul>
+  </div>
 
-<div class="container">
-	<div class="row">
-        <div class="span12">
-    		<table class="table-condensed table-bordered table-striped">
-                <thead>
-                    <tr>
-                      <th colspan="7">
-                        <span class="btn-group">
-                            <a class="btn"><i class="icon-chevron-left"></i></a>
-                        	<a class="btn active">February 2012</a>
-                        	<a class="btn"><i class="icon-chevron-right"></i></a>
-                        </span>
-                      </th>
-                    </tr>
-                    <tr>
-                        <th>Su</th>
-                        <th>Mo</th>
-                        <th>Tu</th>
-                        <th>We</th>
-                        <th>Th</th>
-                        <th>Fr</th>
-                        <th>Sa</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="muted">29</td>
-                        <td class="muted">30</td>
-                        <td class="muted">31</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>10</td>
-                        <td>11</td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td>13</td>
-                        <td>14</td>
-                        <td>15</td>
-                        <td>16</td>
-                        <td>17</td>
-                        <td>18</td>
-                    </tr>
-                    <tr>
-                        <td>19</td>
-                        <td class="btn-primary"><strong>20</strong></td>
-                        <td>21</td>
-                        <td>22</td>
-                        <td>23</td>
-                        <td>24</td>
-                        <td>25</td>
-                    </tr>
-                    <tr>
-                        <td>26</td>
-                        <td>27</td>
-                        <td>28</td>
-                        <td>29</td>
-                        <td class="muted">1</td>
-                        <td class="muted">2</td>
-                        <td class="muted">3</td>
-                    </tr>
-                </tbody>
-            </table>
+
+  <!-- Change Password -->
+  <div class='change-out'>
+    <div class="dropdown change-password">
+         <button class="btn btn-secondary dropdown-toggle change-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           change password
+         </button>
+         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+           <form id="change-password">
+             <fieldset>
+               <input type="password" id="old-password" name="passwords[old]" placeholder="Old">
+               <input type="password" id="new-password" name="passwords[new]" placeholder="New">
+               <button type="submit" class="btn btn-secondary">Change</button>
+             </fieldset>
+             </form>
+         </div>
+       </div>
+       <div class='sign-out'>
+
+          <button id='sign-out' type="button" class="btn btn-secondary">sign out</button>
         </div>
-	</div>
-</div>
+  </div>
+</body>
 
-  </body>
 </html>
