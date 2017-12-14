@@ -1,0 +1,31 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+.btn-secondary {
+  background-color: $gray;
+  border-color: $white;
+  color: $black;
+}
+
+.btn-secondary:hover {
+  border-color: $white;
+}
+
+
+.auth-message {
+  display: inline-flex;
+  font-family: Courier;
+  font-weight: bold;
+}
+
+.sign-in, .sign-up, .sign-out, .change-password {
+  display: inline-flex;
+  font-family: Courier;
+}
+
+.sign-up-in {
+  // puts input forms directly underneath eachother
+  display: inline-block;
+  font-family: Courier;
+}
