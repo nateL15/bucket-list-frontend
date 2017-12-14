@@ -4,6 +4,9 @@ const authUi = require('./ui')
 const getFormFields = require(`../../../lib/get-form-fields`)
 const authApi = require('./api')
 
+// default page
+$('.change-out').hide()
+
 // on sign up
 const onSignUp = function (event) {
   const data = getFormFields(this)
@@ -26,7 +29,7 @@ const onSignIn = function (event) {
 // on change password
 const onChangePassword = function (event) {
   const data = getFormFields(this)
-  // console.log(data)
+  console.log(data)
   event.preventDefault()
   authApi.changePassword(data)
     .then(authUi.changePasswordSuccess)
@@ -46,7 +49,7 @@ const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#sign-out').on('submit', onSignOut)
+  $('#sign-out').on('click', onSignOut)
 }
 
 module.exports = {

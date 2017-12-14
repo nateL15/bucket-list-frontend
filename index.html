@@ -45,7 +45,7 @@
         </form>
       </div>
     </div>
-    <p class='up-in-message'>Message</p>
+    <p class='auth-message'></p>
   </div>
 
 
@@ -65,8 +65,25 @@
 
 
   <!-- Change Password -->
-  <div class='change/out'>
-    <p class='change/out-message'></p>
+  <div class='change-out'>
+    <div class="dropdown change-password">
+         <button class="btn btn-secondary dropdown-toggle change-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           change password
+         </button>
+         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+           <form id="change-password">
+             <fieldset>
+               <input type="password" id="old-password" name="passwords[old]" placeholder="Old">
+               <input type="password" id="new-password" name="passwords[new]" placeholder="New">
+               <button type="submit" class="btn btn-secondary">Change</button>
+             </fieldset>
+             </form>
+         </div>
+       </div>
+       <div class='sign-out'>
+
+          <button id='sign-out' type="button" class="btn btn-secondary">sign out</button>
+        </div>
   </div>
 </body>
 
