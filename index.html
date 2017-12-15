@@ -54,11 +54,18 @@
   <div class='todo'>
     <div class="form-group">
       <h1>To-Do <small>List</small></h1>
-    <form role="form">
-        <input type="text" class="form-control" placeholder="Your Task" name="task">
+    <form role="form" id='create-item'>
+      <fieldset>
+        <input type="text" class="form-control" placeholder="Your Item" name="item[name]">
+        <input type="text" class="form-control" placeholder="Your Note" name="item[notes]">
+        <button type="submit" class="btn btn btn-primary">create item</button>
+      </fieldset>
     </form>
-    <button type="button" class="btn btn btn-primary">Add</button>
-        </div>
+
+    <form id="show-item">
+    <input type="submit" name="submit" value="Show Items" class="btn btn btn-primary"></button>
+      </form>
+      </div>
 
     <ul class="list-unstyled" id="todo"></ul>
   </div>

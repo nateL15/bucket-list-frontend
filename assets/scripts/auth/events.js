@@ -6,6 +6,7 @@ const authApi = require('./api')
 
 // default page
 $('.change-out').hide()
+$('.todo').hide()
 
 // on sign up
 const onSignUp = function (event) {
