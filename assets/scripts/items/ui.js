@@ -4,7 +4,9 @@ const showItems = require('../templates/show-items.handlebars')
 
 const createItemSuccess = function (data) {
   console.log(data)
-  $('#message').text('Champion Item created succesfully!')
+  $('#message').text('Item created succesfully!')
+  $('#create-item')[0].reset()
+  $('#create-item')[0].reset()
 }
 
 const createItemFailure = function (error) {
@@ -45,7 +47,7 @@ module.exports = {
   createItemFailure,
   showItemSuccess,
   showItemFailure,
-  // showItems,
+  showItems,
   deleteItemSuccess,
   deleteItemFailure,
   updateItemSuccess,
