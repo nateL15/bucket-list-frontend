@@ -1,4 +1,9 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-@import 'colors';
-@import 'theme';
+
+$gray: #36454f;
+$black: #000;
+$gray: rgba(178, 178, 178, .3);
+$white: #fff;
+$light-blue: #d2ffe9;
+$pink: #ccbadc;
