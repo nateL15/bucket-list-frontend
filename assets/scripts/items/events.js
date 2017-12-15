@@ -20,21 +20,21 @@ const onShowItem = function (event) {
     .catch(ui.showItemFailure)
 }
 //
-// const onDeleteItem = function (event) {
-//   const data = getFormFields(this)
-//   event.preventDefault()
-//   api.deleteItem(data)
-//     .then(ui.deleteItemSuccess)
-//     .catch(ui.deleteItemFailure)
-// }
-//
-// const onUpdateItem = function (event) {
-//   const data = getFormFields(this)
-//   event.preventDefault()
-//   api.updateItem(data)
-//     .then(ui.updateItemSuccess)
-//     .catch(ui.updateItemFailure)
-// }
+const onDeleteItem = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.deleteItem(data)
+    .then(ui.deleteItemSuccess)
+    .catch(ui.deleteItemFailure)
+}
+
+const onUpdateItem = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.updateItem(data)
+    .then(ui.updateItemSuccess)
+    .catch(ui.updateItemFailure)
+}
 //
 // const clearItemForm = function () {
 //   $('#save-Item').trigger('reset')
@@ -63,7 +63,8 @@ const addHandlers = function (event) {
   $('#create-item').on('submit', onCreateItem)
   // $('#save-Item').on('submit', clearItemForm)
   $('#show-item').on('click', onShowItem)
-  // $('#delete-Item').on('submit', onDeleteItem)
+  $(document.body).on('submit', '#delete-item', onDeleteItem)
+  $(document.body).on('submit', '#update-item', onUpdateItem)
   // $('#delete-Item').on('submit', clearItemForm)
   // $('#update-Item').on('submit', onUpdateItem)
   // $('#update-Item').on('submit', clearItemForm)
@@ -72,7 +73,7 @@ const addHandlers = function (event) {
 module.exports = {
   addHandlers,
   // clearItemForm,
-  // onUpdateItem,
-  // onDeleteItem,
+  onUpdateItem,
+  onDeleteItem,
   onShowItem
 }
