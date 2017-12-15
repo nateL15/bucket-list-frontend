@@ -1,8 +1,11 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-.btn-primary {
-  margin-top: 30px;
+.show-item-data {
+  text-align: center;
+}
+body {
+  background-color: #CCBADC;
 }
 
 .btn-secondary {
