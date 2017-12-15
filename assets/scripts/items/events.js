@@ -62,7 +62,7 @@ const onShowItem = function (event) {
 const addHandlers = function (event) {
   $('#create-item').on('submit', onCreateItem)
   // $('#save-Item').on('submit', clearItemForm)
-  $('#show-item').on('submit', onShowItem)
+  $('#show-item').on('click', onShowItem)
   // $('#delete-Item').on('submit', onDeleteItem)
   // $('#delete-Item').on('submit', clearItemForm)
   // $('#update-Item').on('submit', onUpdateItem)
