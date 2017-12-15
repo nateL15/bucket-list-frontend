@@ -44,6 +44,7 @@ const signInSuccess = function (data) {
   $('.auth-message').text('Sign in success').show().hide(10000)
   $('.change-out').show()
   $('.sign-up-in').hide()
+  $('.todo').show()
   clearIn()
 }
 
@@ -70,6 +71,7 @@ const signOutSuccess = function () {
   store.user = null
   $('.auth-message').text('Signed out').show().hide(10000)
   $('.change-out').hide()
+  $('.todo').hide()
 }
 
 // sign out fail

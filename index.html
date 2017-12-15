@@ -52,13 +52,29 @@
 
   <!-- To Do list container -->
   <div class='todo'>
+    <!-- create form -->
     <div class="form-group">
       <h1>To-Do <small>List</small></h1>
-    <form role="form">
-        <input type="text" class="form-control" placeholder="Your Task" name="task">
+    <form role="form" id='create-item'>
+      <fieldset>
+        <input type="text" class="form-control" placeholder="Your Item" name="item[name]">
+        <input type="text" class="form-control" placeholder="Your Note" name="item[notes]">
+        <button type="submit" class="btn btn btn-primary">create item</button>
+      </fieldset>
     </form>
-    <button type="button" class="btn btn btn-primary">Add</button>
-        </div>
+
+    <!-- show button -->
+    <button id="show-item" type="submit" class="btn btn btn-primary">show items</button>
+
+      <!-- update form -->
+      <form role="form" id='update-item'>
+        <fieldset>
+          <input type="text" class="form-control" placeholder="Your Item" name="item[name]">
+          <input type="text" class="form-control" placeholder="Your Note" name="item[notes]">
+          <button type="submit" class="btn btn btn-primary">update item</button>
+        </fieldset>
+      </form>
+      </div>
 
     <ul class="list-unstyled" id="todo"></ul>
   </div>
