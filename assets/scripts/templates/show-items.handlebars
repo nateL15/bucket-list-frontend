@@ -5,16 +5,16 @@
     <h1>Name: {{item.name}}</h1>
     <h2>Notes: {{item.notes}}</h2>
 
-  <form id="delete-item">
+  <form class="delete-item">
     <input type="submit" name="submit" value="Delete Item" class="delete-button">
-    <input type="text" name="item[id]" id="delete-by-item-id" value={{item.id}} style="display: none">
+    <input type="text" name="item[id]" class="delete-by-item-id" value={{item.id}} style="display: none">
 </form>
 
-<form id="update-item">
+<form class="update-item">
   <input type="submit" name="submit" value="Update Item" class="delete-button">
-  <input type="text" name="item[id]" id="delete-by-item-id" value={{item.id}} style="display: none">
-  <input type="text" name="item[name]" id="update-name" placeholder="update name">
-  <input type="text" name="item[notes]" id="update-notes" placeholder="update notes">
+  <input type="text" name="item[id]" class="delete-by-item-id" value={{item.id}} style="display: none">
+  <input type="text" name="item[name]" class="update-name" placeholder="update name">
+  <input type="text" name="item[notes]" class="update-notes" placeholder="update notes">
 </form>
 
 {{/each}}

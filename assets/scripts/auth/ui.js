@@ -26,13 +26,15 @@ const clearPass = function () {
 // sign up  success
 const signUpSuccess = function (data) {
   console.log('sign up success data is ', data)
-  $('.auth-message').text('Signed up successfully! Please sign in').show().hide(10000)
+  $('.message').show()
+  $('#user-message').text('Signed up successfully! Please sign in')
   $('.sign-up').hide()
   clearUp()
 }
 // sign up fail
 const signUpFailure = function (error) {
-  $('.auth-message').text('Error on sign up').show().hide(10000)
+  $('.message').show()
+  $('#user-message').text('Error on sign up')
   console.log(error)
   clearUp()
 }
@@ -41,7 +43,8 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
   store.user = data.user
   console.log('User data is ', data)
-  $('.auth-message').text('Sign in success').show().hide(10000)
+  $('.message').show()
+  $('#user-message').text('Sign in success')
   $('.change-out').show()
   $('.sign-up-in').hide()
   $('.todo').show()
@@ -51,25 +54,29 @@ const signInSuccess = function (data) {
 // sign in fail
 const signInFailure = function (error) {
   console.log(error)
-  $('.auth-message').text('Error on sign in').show().hide(10000)
+  $('.message').show()
+  $('#user-message').text('Error on sign in')
   clearIn()
 }
 
 // change password success
 const changePasswordSuccess = function () {
-  $('.auth-message').text('Password changed').show().hide(10000)
+  $('.message').show()
+  $('#user-message').text('Password changed')
   clearPass()
 }
 // Change password fail
 const changePasswordFailure = function (error) {
   console.log(error)
-  $('.auth-message').text('Password changed').show().hide(10000)
+  $('.message').show()
+  $('#user-message').text('Password changed')
   clearPass()
 }
 // sign out success
 const signOutSuccess = function () {
   store.user = null
-  $('.auth-message').text('Signed out').show().hide(10000)
+  $('.message').show()
+  $('#user-message').text('Signed out! Sign in to create list!')
   $('.change-out').hide()
   $('.todo').hide()
   $('.display-items').hide()
@@ -78,7 +85,8 @@ const signOutSuccess = function () {
 
 // sign out fail
 const signOutFailure = function (error) {
-  $('.auth-message').text('Still here').show().hide(10000)
+  $('.message').show()
+  $('#user-message').text('Still here')
   console.log(error)
 }
 
