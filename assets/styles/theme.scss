@@ -29,3 +29,16 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   display: inline-block;
   font-family: Courier;
 }
+
+.form-group {
+  padding-bottom: 25px;
+  text-align: center;
+  width: 500px;
+  border: 10px solid black;
+  background-color: lighten(gray, 30%);
+  margin: 0 auto;
+}
+
+.close {
+  float: right;
+}
