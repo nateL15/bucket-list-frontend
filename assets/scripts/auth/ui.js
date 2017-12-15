@@ -72,6 +72,8 @@ const signOutSuccess = function () {
   $('.auth-message').text('Signed out').show().hide(10000)
   $('.change-out').hide()
   $('.todo').hide()
+  $('.display-items').hide()
+  $('.sign-up-in').show()
 }
 
 // sign out fail

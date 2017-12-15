@@ -35,7 +35,7 @@ const onUpdateItem = function (event) {
     .then(ui.updateItemSuccess)
     .catch(ui.updateItemFailure)
 }
-//
+
 // const clearItemForm = function () {
 //   $('#save-Item').trigger('reset')
 //   $('#get-Item').trigger('reset')
@@ -66,7 +66,7 @@ const addHandlers = function (event) {
   $(document.body).on('submit', '#delete-item', onDeleteItem)
   $(document.body).on('submit', '#update-item', onUpdateItem)
   // $('#delete-Item').on('submit', clearItemForm)
-  // $('#update-Item').on('submit', onUpdateItem)
+  $('#update-Item').on('submit', onUpdateItem)
   // $('#update-Item').on('submit', clearItemForm)
 }
 
