@@ -30,6 +30,7 @@ const onDeleteItem = function (event) {
 
 const onUpdateItem = function (event) {
   const data = getFormFields(this)
+  console.log(data)
   event.preventDefault()
   api.updateItem(data)
     .then(ui.updateItemSuccess)
@@ -67,6 +68,7 @@ const addHandlers = function (event) {
   $(document.body).on('submit', '.update-item', onUpdateItem)
   // $('#delete-Item').on('submit', clearItemForm)
   $('#update-Item').on('submit', onUpdateItem)
+  $(document.body).on('submit', '#update-active-status', onUpdateItem)
   // $('#update-Item').on('submit', clearItemForm)
 }
 
