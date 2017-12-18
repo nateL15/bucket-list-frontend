@@ -4,8 +4,27 @@ const showItems = require('../templates/show-items.handlebars')
 const showCompletedItems = require('../templates/show-completed-items.handlebars')
 const itemsApi = require('./api')
 
+let numberOfItems
+
+const findItems = function (data) {
+  numberOfItems = data.items.length
+  checkFormState()
+}
+
+const checkFormState = function () {
+  if (numberOfItems === 0) {
+    $('#show-item').hide()
+    $('#show-completed-items').hide()
+  } else {
+    $('#show-item').show()
+    $('#show-completed-items').show()
+  }
+}
+
 const createItemSuccess = function (data) {
-  console.log(data)
+  numberOfItems += 1
+  checkFormState()
+  console.log('HOW MANY ITEMS???', numberOfItems)
   $('#message').text('Item created succesfully!')
   $('#create-item')[0].reset()
   $('.message').show()
@@ -42,6 +61,8 @@ const showItemFailure = function (data) {
 }
 //
 const deleteItemSuccess = function (data) {
+  numberOfItems -= 1
+  checkFormState()
   $('.message').show()
   $('#user-message').text('Item deleted successfully!')
   itemsApi.showItem(data)
@@ -50,6 +71,8 @@ const deleteItemSuccess = function (data) {
 }
 
 const deleteCompletedItemSuccess = function (data) {
+  numberOfItems -= 1
+  checkFormState()
   $('.message').show()
   $('#user-message').text('Item deleted successfully!')
   itemsApi.showItem(data)
@@ -143,5 +166,6 @@ module.exports = {
   updateItemStateSuccess,
   showCompletedItemsSuccess,
   checkState,
-  checkActive
+  checkActive,
+  findItems
 }
