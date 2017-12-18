@@ -46,7 +46,7 @@ const signInSuccess = function (data) {
   store.user = data.user
   console.log('User data is ', data)
   $('.message').show()
-  $('#user-message').text('Sign in success')
+  $('#item-message').text('Sign in success').show()
   $('.change-out').show()
   $('.sign-up-in').hide()
   $('.title').hide()
@@ -89,6 +89,7 @@ const signOutSuccess = function () {
   $('.todo').hide()
   $('.display-items').hide()
   $('.sign-up-in').show()
+  $('#item-message').hide()
 }
 
 // sign out fail
