@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-Bucket List Frontend!!!!!!!!!!!!!
-=======
+
 Bucket List Frontend:
 Made with HTML/CSS, Bootstrap, Javascript, Jquery,
 handlebars.
@@ -19,4 +17,3 @@ Link to Wireframes:
 https://imgur.com/gallery/OL7kN
 
 Link to back end repo: https://github.com/Viral-Champagne-Gunslingers/bucket-list-api
->>>>>>> Update README to have links to other repos and
