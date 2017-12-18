@@ -27,7 +27,6 @@ const clearPass = function () {
 
 // sign up  success
 const signUpSuccess = function (data) {
-  console.log('sign up success data is ', data)
   $('.message').show()
   $('#user-message').text('Signed up successfully! Please sign in')
   $('.sign-up').hide()
@@ -44,7 +43,6 @@ const signUpFailure = function (error) {
 // sign in success
 const signInSuccess = function (data) {
   store.user = data.user
-  console.log('User data is ', data)
   $('.message').show()
   $('#item-message').text('Sign in success').show()
   $('.change-out').show()

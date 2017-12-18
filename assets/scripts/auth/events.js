@@ -20,7 +20,6 @@ const onSignUp = function (event) {
 // on sign in
 const onSignIn = function (event) {
   const data = getFormFields(this)
-  console.log(event)
   event.preventDefault()
   authApi.signIn(data)
     .then(authUi.signInSuccess)
@@ -30,7 +29,6 @@ const onSignIn = function (event) {
 // on change password
 const onChangePassword = function (event) {
   const data = getFormFields(this)
-  console.log(data)
   event.preventDefault()
   authApi.changePassword(data)
     .then(authUi.changePasswordSuccess)

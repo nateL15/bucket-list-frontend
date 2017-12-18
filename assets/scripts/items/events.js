@@ -2,38 +2,7 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
-// let items
-//
-// const checkForItems = function (data) {
-//   items = data.items.length
-//   console.log('CHECK OUT THIS SICK DATA', items)
-//   showButtons(items)
-// }
-//
-// const showButtons = function () {
-//   if (items === 0) {
-//     $('#show-item').hide()
-//     $('#show-completed-items').hide()
-//   } else {
-//     $('#show-item').show()
-//     $('#show-completed-items').show()
-//     $('#display-items').show()
-//   }
-// }
-
 const onCreateItem = function (event) {
-  // if ($('#create-item').val('') !== 0 && $('#create-note').val('') !== 0) {
-  //   $('.message').show()
-  //   $('#user-message').text('Item created!')
-  // } else {
-  //   $('.message').show()
-  //   $('#user-message').text('Please fill both forms')
-  // }
-
-// function to check whether or not user has items
-// if true show show button and completed button
-// if false hide buttons
-
   const data = getFormFields(this)
   event.preventDefault()
   data.item.active = true
@@ -43,9 +12,7 @@ const onCreateItem = function (event) {
 }
 //
 const onShowItem = function (event) {
-  // const data = getFormFields(this)
   event.preventDefault()
-  // console.log('on show data', data)
   api.showItem()
     .then(ui.checkActive)
     .catch(ui.showItemFailure)
@@ -79,15 +46,18 @@ const onDeleteCompletedItem = function (event) {
 const onUpdateItem = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  api.updateItem(data)
-    .then(ui.updateItemSuccess)
-    .catch(ui.updateItemFailure)
+  if (data.item.name !== '' && data.item.notes !== '') {
+    api.updateItem(data)
+      .then(ui.updateItemSuccess)
+      .catch(ui.updateItemFailure)
+  } else {
+    $('#item-message').text('Fill out both fields')
+  }
 }
 
 const onUpdateActiveState = function (event) {
   const data = getFormFields(this)
   data.item.active = false
-  console.log(data)
   event.preventDefault()
   api.updateItem(data)
     .then(ui.updateItemStateSuccess)
