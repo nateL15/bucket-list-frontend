@@ -37,6 +37,14 @@ const onDeleteItem = function (event) {
     .catch(ui.deleteItemFailure)
 }
 
+const onDeleteCompletedItem = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.deleteItem(data)
+    .then(ui.deleteCompletedItemSuccess)
+    .catch(ui.deleteItemFailure)
+}
+
 const onUpdateItem = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -83,10 +91,10 @@ const addHandlers = function (event) {
   // $('#save-Item').on('submit', clearItemForm)
   $('#show-item').on('click', onShowItem)
   $('#show-completed-items').on('click', onShowCompletedItems)
-  $(document.body).on('submit', '#delete-item', onDeleteItem)
-  $(document.body).on('submit', '#update-item', onUpdateItem)
+  $(document.body).on('submit', '.delete-item', onDeleteItem)
+  $(document.body).on('submit', '.delete-completed-item', onDeleteCompletedItem)
   // $('#delete-Item').on('submit', clearItemForm)
-  $('#update-Item').on('submit', onUpdateItem)
+  $(document.body).on('submit', '.update-item', onUpdateItem)
   $(document.body).on('submit', '#update-active-status', onUpdateActiveState)
   // $('#update-Item').on('submit', clearItemForm)
 }
