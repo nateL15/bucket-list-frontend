@@ -1,6 +1,6 @@
 Bucket List Frontend:
 Made with HTML/CSS, Bootstrap, Javascript, Jquery,
-handlebars
+handlebars.
 
 User stories:
 As a user I need to be able to sign in, out, up and change my password.
