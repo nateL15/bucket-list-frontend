@@ -49,10 +49,11 @@ const signInSuccess = function (data) {
   $('.sign-up-in').hide()
   $('.title').hide()
   $('.todo').show()
-  itemsApi.showItem()
-    .then(itemsUi.showItemSuccess)
-    .catch(itemsUi.showItemFailure)
-  clearIn()
+  $('.display-items').show()
+  // itemsApi.showItem()
+  //   .then(itemsUi.showItemSuccess)
+  //   .catch(itemsUi.showItemFailure)
+  // clearIn()
   itemsApi.showItem()
     .then(itemsUi.findItems)
 }
@@ -80,7 +81,7 @@ const changePasswordFailure = function (error) {
 }
 // sign out success
 const signOutSuccess = function () {
-  store.user = null
+  // store.user = null
   $('.message').show()
   $('#user-message').text('Signed out! Sign in to create list!')
   $('.change-out').hide()
