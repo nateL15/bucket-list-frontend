@@ -45,10 +45,9 @@ const createItemSuccess = function (data) {
   numberOfItems += 1
   hideItemButton()
   console.log('HOW MANY ITEMS???', numberOfItems)
-  $('#message').text('Item created succesfully!')
-  $('#create-item')[0].reset()
+  $('.create-item')[0].reset()
   $('.message').show()
-  $('#user-message').text('Item created succesfully!')
+  $('#item-message').text('Item created succesfully!')
   itemsApi.showItem(data)
     .then(checkActive)
     .catch(showItemFailure)
@@ -56,7 +55,7 @@ const createItemSuccess = function (data) {
 
 const createItemFailure = function (error) {
   $('.message').show()
-  $('#user-message').text('Error Saving Item', error)
+  $('#item-message').text('Error Saving Item', error)
 }
 
 const showItemSuccess = (data) => {
@@ -83,8 +82,7 @@ const showItemFailure = function (data) {
 const deleteItemSuccess = function (data) {
   numberOfItems -= 1
   hideItemButton()
-  $('.message').show()
-  $('#user-message').text('Item deleted successfully!')
+  $('#item-message').text('Item deleted successfully!')
   itemsApi.showItem(data)
     .then(showItemSuccess)
     .catch(showItemFailure)
@@ -93,29 +91,25 @@ const deleteItemSuccess = function (data) {
 const deleteCompletedItemSuccess = function (data) {
   numberOfCompleteItems -= 1
   hideCompletedButton()
-  $('.message').show()
-  $('#user-message').text('Item deleted successfully!')
+  $('#item-message').text('Item deleted successfully!')
   itemsApi.showItem(data)
     .then(checkState)
     .catch(showItemFailure)
 }
 
 const deleteItemFailure = function (data) {
-  $('.message').show()
-  $('#user-message').text('Unable to delete Item')
+  $('#item-message').text('Unable to delete Item')
 }
 //
 const updateItemSuccess = function (data) {
-  $('.message').show()
-  $('#user-message').text('Item succesfully updated!')
+  $('#item-message').text('Item successfully updated!')
   itemsApi.showItem(data)
     .then(showItemSuccess)
     .catch(showItemFailure)
 }
 
 const updateItemFailure = function (data) {
-  $('.message').show()
-  $('#user-message').text('Unable to update Item')
+  $('#item-message').text('Unable to update Item')
 }
 
 const updateItemStateSuccess = function (data) {
@@ -123,14 +117,14 @@ const updateItemStateSuccess = function (data) {
   numberOfCompleteItems += 1
   hideCompletedButton()
   hideItemButton()
-  $('#message').text('Completed!')
+  $('#item-message').text('Completed!')
   itemsApi.showItem(data)
     .then(checkActive)
     .catch(showItemFailure)
 }
 
 const updateItemStateFailure = function (data) {
-  $('#message').text('Unable to perform this request')
+  $('#item-message').text('Unable to perform this request')
 }
 
 const showCompletedItemsSuccess = function (data) {
