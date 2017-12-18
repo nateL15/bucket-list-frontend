@@ -4,8 +4,47 @@ const showItems = require('../templates/show-items.handlebars')
 const showCompletedItems = require('../templates/show-completed-items.handlebars')
 const itemsApi = require('./api')
 
+let numberOfItems = 0
+let numberOfCompleteItems = 0
+
+const findItems = function (data) {
+  numberOfItems = 0
+  numberOfCompleteItems = 0
+  console.log('ALL DATA', data.items)
+  // numberOfItems = data.items.length
+  for (let i = 0; i < data.items.length; i++) {
+    if (data.items[i].active === true) {
+      numberOfItems += 1
+    } else if (data.items[i].active === false) {
+      numberOfCompleteItems += 1
+    }
+  }
+  console.log('COMPLETE', numberOfCompleteItems)
+  console.log('ACTIVE', numberOfItems)
+  hideItemButton()
+  hideCompletedButton()
+}
+
+const hideItemButton = function () {
+  if (numberOfItems === 0) {
+    $('#show-item').hide()
+  } else {
+    $('#show-item').show()
+  }
+}
+
+const hideCompletedButton = function () {
+  if (numberOfCompleteItems === 0) {
+    $('#show-completed-items').hide()
+  } else {
+    $('#show-completed-items').show()
+  }
+}
+
 const createItemSuccess = function (data) {
-  console.log(data)
+  numberOfItems += 1
+  hideItemButton()
+  console.log('HOW MANY ITEMS???', numberOfItems)
   $('#message').text('Item created succesfully!')
   $('#create-item')[0].reset()
   $('.message').show()
@@ -42,6 +81,8 @@ const showItemFailure = function (data) {
 }
 //
 const deleteItemSuccess = function (data) {
+  numberOfItems -= 1
+  hideItemButton()
   $('.message').show()
   $('#user-message').text('Item deleted successfully!')
   itemsApi.showItem(data)
@@ -50,6 +91,8 @@ const deleteItemSuccess = function (data) {
 }
 
 const deleteCompletedItemSuccess = function (data) {
+  numberOfCompleteItems -= 1
+  hideCompletedButton()
   $('.message').show()
   $('#user-message').text('Item deleted successfully!')
   itemsApi.showItem(data)
@@ -76,6 +119,10 @@ const updateItemFailure = function (data) {
 }
 
 const updateItemStateSuccess = function (data) {
+  numberOfItems -= 1
+  numberOfCompleteItems += 1
+  hideCompletedButton()
+  hideItemButton()
   $('#message').text('Completed!')
   itemsApi.showItem(data)
     .then(checkActive)
@@ -143,5 +190,6 @@ module.exports = {
   updateItemStateSuccess,
   showCompletedItemsSuccess,
   checkState,
-  checkActive
+  checkActive,
+  findItems
 }

@@ -1,6 +1,8 @@
 'use strict'
 
 const store = require('../store')
+const itemApi = require('../items/api')
+const itemUi = require('../items/ui')
 
 // clear forms function for sign up
 const clearUp = function () {
@@ -50,6 +52,8 @@ const signInSuccess = function (data) {
   $('.title').hide()
   $('.todo').show()
   clearIn()
+  itemApi.showItem()
+    .then(itemUi.findItems)
 }
 
 // sign in fail
@@ -70,7 +74,7 @@ const changePasswordSuccess = function () {
 const changePasswordFailure = function (error) {
   console.log(error)
   $('.message').show()
-  $('#user-message').text('Password changed')
+  $('#user-message').text('Password Change Failiure')
   clearPass()
 }
 // sign out success
