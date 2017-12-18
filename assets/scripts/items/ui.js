@@ -82,16 +82,37 @@ const showCompletedItemsSuccess = function (data) {
 }
 
 const checkState = function (data) {
-  const completedItems = {
-    completed: []
-  }
-  const allItems = data.items
-  for (let i = 0; i < allItems.length; i++) {
-    if (allItems[i].active === false) {
-      completedItems.completed.push(allItems[i])
+  if (data.items.length === 0) {
+    showItemSuccess(data)
+  } else {
+    const completedItems = {
+      completed: []
     }
-    showCompletedItemsSuccess(completedItems)
-  } console.log('ALL COMPLETED ITEMS', completedItems)
+    const allItems = data.items
+    for (let i = 0; i < allItems.length; i++) {
+      if (allItems[i].active === false) {
+        completedItems.completed.push(allItems[i])
+      }
+      showCompletedItemsSuccess(completedItems)
+    } console.log('ALL COMPLETED ITEMS', completedItems)
+  }
+}
+
+const checkActive = function (data) {
+  if (data.items.length === 0) {
+    showItemSuccess(data)
+  } else {
+    const activeItems = {
+      items: []
+    }
+    const allItems = data.items
+    for (let i = 0; i < allItems.length; i++) {
+      if (allItems[i].active === true) {
+        activeItems.items.push(allItems[i])
+      }
+      showItemSuccess(activeItems)
+    } console.log('ALL active ITEMS', activeItems)
+  }
 }
 
 module.exports = {
@@ -108,5 +129,6 @@ module.exports = {
   updateItemStateFailure,
   updateItemStateSuccess,
   showCompletedItemsSuccess,
-  checkState
+  checkState,
+  checkActive
 }

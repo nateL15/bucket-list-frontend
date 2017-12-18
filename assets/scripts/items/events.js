@@ -16,7 +16,7 @@ const onShowItem = function (event) {
   event.preventDefault()
   console.log(data)
   api.showItem(data)
-    .then(ui.showItemSuccess)
+    .then(ui.checkActive)
     .catch(ui.showItemFailure)
 }
 
