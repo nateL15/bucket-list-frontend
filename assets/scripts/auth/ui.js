@@ -47,6 +47,7 @@ const signInSuccess = function (data) {
   $('#user-message').text('Sign in success')
   $('.change-out').show()
   $('.sign-up-in').hide()
+  $('.title').hide()
   $('.todo').show()
   clearIn()
 }

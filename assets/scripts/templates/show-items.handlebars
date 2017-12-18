@@ -17,4 +17,11 @@
   <input type="text" name="item[notes]" class="update-notes" placeholder="update notes">
 </form>
 
+<form id="update-active-status">
+  <input type="submit" name="submit" value="Completed" class="update-status">
+  <input type="text" name="item[id]" id="delete-by-item-id" value={{item.id}} style="display: none">
+  <input type="text" name="item[active]" id="update-item" value=true style="display: none">
+</form>
+</div>
+
 {{/each}}

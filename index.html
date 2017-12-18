@@ -6,6 +6,7 @@
 
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -13,6 +14,8 @@
 </head>
 
 <body class="container-fluid">
+
+  <h1 class="title">Bucket List</h1>
   <!-- Sign up and sign in container -->
   <div class='sign-up-in'>
     <div class="dropdown sign-up">
@@ -52,6 +55,8 @@
   <p id='user-message'></p>
 </div>
 
+
+
   <!-- To Do list container -->
   <div class='todo'>
     <!-- create form -->
@@ -67,6 +72,21 @@
 
     <!-- show button -->
     <button id="show-item" type="submit" class="btn btn btn-primary">show items</button>
+
+    <!-- show completed bucket items -->
+    <button id="show-completed-items" type="submit" class="btn btn btn-primary">show completed items!</button>
+
+      <!-- update form -->
+      <!-- <form role="form" id='update-item'>
+        <fieldset>
+          <input type="text" class="form-control" placeholder="Your Item" name="item[name]">
+          <input type="text" class="form-control" placeholder="Your Note" name="item[notes]">
+          <button type="submit" class="btn btn btn-primary">update item</button>
+        </fieldset>
+      </form> -->
+      </div>
+
+    <ul class="list-unstyled" id="todo"></ul>
   </div>
   <p class="display-items"></p>
 </div>

@@ -1,14 +1,41 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-.btn-primary {
-  margin-top: 30px;
+.show-item-data {
+  text-align: center;
 }
-
+body {
+  background-color: #CCBADC;
+}
 .btn-secondary {
   background-color: $gray;
   border-color: $white;
   color: $black;
+}
+.sign-up-in {
+  width: 100%;
+ }
+
+.title {
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 40px;
+  margin-top: 100px;
+}
+
+.bucket {
+
+}
+
+.form-group {
+  font-family: sans-serif;
+  background-color: white;
+  padding: 25px;
+  text-align: center;
+  width: 500px;
+  box-shadow: 1px 1px 5px #D2FFE9;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
 .btn-secondary:hover {

@@ -16,9 +16,18 @@ const onShowItem = function (event) {
   event.preventDefault()
   console.log(data)
   api.showItem(data)
-    .then(ui.showItemSuccess)
+    .then(ui.checkActive)
     .catch(ui.showItemFailure)
 }
+
+const onShowCompletedItems = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.showItem(data)
+    .then(ui.checkState)
+    .catch(ui.showCompletedItemsFailure)
+}
+
 //
 const onDeleteItem = function (event) {
   const data = getFormFields(this)
@@ -28,12 +37,30 @@ const onDeleteItem = function (event) {
     .catch(ui.deleteItemFailure)
 }
 
+const onDeleteCompletedItem = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.deleteItem(data)
+    .then(ui.deleteCompletedItemSuccess)
+    .catch(ui.deleteItemFailure)
+}
+
 const onUpdateItem = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
   api.updateItem(data)
     .then(ui.updateItemSuccess)
     .catch(ui.updateItemFailure)
+}
+
+const onUpdateActiveState = function (event) {
+  const data = getFormFields(this)
+  data.item.active = false
+  console.log(data)
+  event.preventDefault()
+  api.updateItem(data)
+    .then(ui.updateItemStateSuccess)
+    .catch(ui.updateItemStateFailure)
 }
 
 // const clearItemForm = function () {
@@ -63,10 +90,12 @@ const addHandlers = function (event) {
   $('#create-item').on('submit', onCreateItem)
   // $('#save-Item').on('submit', clearItemForm)
   $('#show-item').on('click', onShowItem)
+  $('#show-completed-items').on('click', onShowCompletedItems)
   $(document.body).on('submit', '.delete-item', onDeleteItem)
-  $(document.body).on('submit', '.update-item', onUpdateItem)
+  $(document.body).on('submit', '.delete-completed-item', onDeleteCompletedItem)
   // $('#delete-Item').on('submit', clearItemForm)
-  $('#update-Item').on('submit', onUpdateItem)
+  $(document.body).on('submit', '.update-item', onUpdateItem)
+  $(document.body).on('submit', '#update-active-status', onUpdateActiveState)
   // $('#update-Item').on('submit', clearItemForm)
 }
 
@@ -75,5 +104,6 @@ module.exports = {
   // clearItemForm,
   onUpdateItem,
   onDeleteItem,
-  onShowItem
+  onShowItem,
+  onShowCompletedItems
 }
