@@ -1,7 +1,7 @@
 'use strict'
 
-const showItemsTemplate = require('../templates/show-items.handlebars')
-const itemsApi = require('./api')
+const showItems = require('../templates/show-items.handlebars')
+const showCompletedItems = require('../templates/show-completed-items.handlebars')
 
 const createItemSuccess = function (data) {
   console.log(data)
@@ -66,13 +66,47 @@ const updateItemFailure = function (data) {
   $('#user-message').text('Unable to update Item')
 }
 
+const updateItemStateSuccess = function (data) {
+  $('#message').text('Completed!')
+}
+
+const updateItemStateFailure = function (data) {
+  $('#message').text('Unable to perform this request')
+}
+
+const showCompletedItemsSuccess = function (data) {
+  const onShowItems = showCompletedItems({ items: data.completed })
+  $('.display-items').empty()
+  $('.display-items').append(onShowItems)
+  $('#message').text('items retrieved succesfully!')
+}
+
+const checkState = function (data) {
+  const completedItems = {
+    completed: []
+  }
+  const allItems = data.items
+  for (let i = 0; i < allItems.length; i++) {
+    if (allItems[i].active === false) {
+      completedItems.completed.push(allItems[i])
+    }
+    showCompletedItemsSuccess(completedItems)
+  } console.log('ALL COMPLETED ITEMS', completedItems)
+}
+
 module.exports = {
   createItemSuccess,
   createItemFailure,
   showItemSuccess,
   showItemFailure,
+  showItems,
+  showCompletedItems,
   deleteItemSuccess,
   deleteItemFailure,
   updateItemSuccess,
-  updateItemFailure
+  updateItemFailure,
+  updateItemStateFailure,
+  updateItemStateSuccess,
+  showCompletedItemsSuccess,
+  checkState
 }
