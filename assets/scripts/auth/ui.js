@@ -1,8 +1,8 @@
 'use strict'
 
 const store = require('../store')
-const itemApi = require('../items/api')
-const itemUi = require('../items/ui')
+const itemsApi = require('../items/api')
+const itemsUi = require('../items/ui')
 
 // clear forms function for sign up
 const clearUp = function () {
@@ -55,8 +55,8 @@ const signInSuccess = function (data) {
     .then(itemsUi.showItemSuccess)
     .catch(itemsUi.showItemFailure)
   clearIn()
-  itemApi.showItem()
-    .then(itemUi.findItems)
+  itemsApi.showItem()
+    .then(itemsUi.findItems)
 }
 
 // sign in fail

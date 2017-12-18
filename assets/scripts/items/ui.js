@@ -46,7 +46,7 @@ const createItemSuccess = function (data) {
   hideItemButton()
   console.log('HOW MANY ITEMS???', numberOfItems)
   $('#message').text('Item created succesfully!')
-  $('#create-item')[0].reset()
+  $('.create-item')[0].reset()
   $('.message').show()
   $('#user-message').text('Item created succesfully!')
   itemsApi.showItem(data)
