@@ -3,6 +3,13 @@ const ui = require('./ui')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
 const onCreateItem = function (event) {
+  // if ($('#create-item').val('') !== 0 && $('#create-note').val('') !== 0) {
+  //   $('.message').show()
+  //   $('#user-message').text('Item created!')
+  // } else {
+  //   $('.message').show()
+  //   $('#user-message').text('Please fill both forms')
+  // }
   const data = getFormFields(this)
   event.preventDefault()
   data.item.active = true
