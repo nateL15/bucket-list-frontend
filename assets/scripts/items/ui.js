@@ -10,7 +10,6 @@ let numberOfCompleteItems = 0
 const findItems = function (data) {
   numberOfItems = 0
   numberOfCompleteItems = 0
-  console.log('ALL DATA', data.items)
   // numberOfItems = data.items.length
   for (let i = 0; i < data.items.length; i++) {
     if (data.items[i].active === true) {
@@ -19,8 +18,6 @@ const findItems = function (data) {
       numberOfCompleteItems += 1
     }
   }
-  console.log('COMPLETE', numberOfCompleteItems)
-  console.log('ACTIVE', numberOfItems)
   hideItemButton()
   hideCompletedButton()
 }
@@ -44,7 +41,6 @@ const hideCompletedButton = function () {
 const createItemSuccess = function (data) {
   numberOfItems += 1
   hideItemButton()
-  console.log('HOW MANY ITEMS???', numberOfItems)
   $('.create-item')[0].reset()
   $('.message').show()
   $('#item-message').text('Item created succesfully!')
@@ -59,7 +55,6 @@ const createItemFailure = function (error) {
 }
 
 const showItemSuccess = (data) => {
-  console.log('HERES THE FRICKEN DATA', data)
   const onShowItems = showItems({ items: data.items })
   if (data.items.length !== 0) {
     $('.message').show()
@@ -70,8 +65,6 @@ const showItemSuccess = (data) => {
   }
   $('.display-items').empty()
   $('.display-items').append(onShowItems)
-
-  console.log(data)
 }
 
 const showItemFailure = function (data) {
@@ -147,7 +140,7 @@ const checkState = function (data) {
         completedItems.completed.push(allItems[i])
       }
       showCompletedItemsSuccess(completedItems)
-    } console.log('ALL COMPLETED ITEMS', completedItems)
+    }
   }
 }
 
@@ -164,7 +157,7 @@ const checkActive = function (data) {
         activeItems.items.push(allItems[i])
       }
       showItemSuccess(activeItems)
-    } console.log('ALL active ITEMS', activeItems)
+    }
   }
 }
 
