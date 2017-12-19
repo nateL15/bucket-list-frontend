@@ -88,6 +88,7 @@ const signOutSuccess = function () {
   $('.todo').hide()
   $('.display-items').hide()
   $('.sign-up-in').show()
+  $('.sign-up').show()
   $('#item-message').hide()
 }
 
