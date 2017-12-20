@@ -59,8 +59,7 @@ const signInSuccess = function (data) {
 }
 
 // sign in fail
-const signInFailure = function (error) {
-  console.log(error)
+const signInFailure = function () {
   $('.message').show()
   $('#user-message').text('Error on sign in')
   clearIn()
@@ -73,8 +72,7 @@ const changePasswordSuccess = function () {
   clearPass()
 }
 // Change password fail
-const changePasswordFailure = function (error) {
-  console.log(error)
+const changePasswordFailure = function () {
   $('.message').show()
   $('#user-message').text('Password Change Failiure')
   clearPass()
@@ -93,10 +91,9 @@ const signOutSuccess = function () {
 }
 
 // sign out fail
-const signOutFailure = function (error) {
+const signOutFailure = function () {
   $('.message').show()
   $('#user-message').text('Still here')
-  console.log(error)
 }
 
 module.exports = {
