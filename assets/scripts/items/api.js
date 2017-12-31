@@ -12,6 +12,17 @@ const createItem = function (data) {
   })
 }
 
+const shareItem = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/items' + data.item.id,
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const updateItem = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/items/' + data.item.id,
@@ -49,5 +60,6 @@ module.exports = {
   createItem,
   updateItem,
   showItem,
-  deleteItem
+  deleteItem,
+  shareItem
 }

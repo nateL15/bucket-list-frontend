@@ -11,6 +11,16 @@ const onCreateItem = function (event) {
     .catch(ui.createItemFailure)
 }
 //
+
+const onShareItem = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  data.item.active = true
+  api.createItem(data)
+    .then(ui.shareItemSuccess)
+    .catch(ui.shareItemFailure)
+}
+
 const onShowItem = function (event) {
   event.preventDefault()
   api.showItem()
@@ -92,6 +102,7 @@ const addHandlers = function (event) {
   // $('#save-Item').on('submit', clearItemForm)
   $('#show-item').on('click', onShowItem)
   $('#show-completed-items').on('click', onShowCompletedItems)
+  $('#share-item').on('click', onShareItem)
   $(document.body).on('submit', '.delete-item', onDeleteItem)
   $(document.body).on('submit', '.delete-completed-item', onDeleteCompletedItem)
   // $('#delete-Item').on('submit', clearItemForm)
@@ -103,6 +114,7 @@ const addHandlers = function (event) {
 module.exports = {
   addHandlers,
   // clearItemForm,
+  onShareItem,
   onUpdateItem,
   onDeleteItem,
   onShowItem,

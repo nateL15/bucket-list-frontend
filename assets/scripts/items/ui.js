@@ -71,6 +71,24 @@ const showItemFailure = function (data) {
   $('.message').show()
   $('#user-message').text('Failed to get Items')
 }
+
+const shareItemFailure = function (data) {
+  $('.message').show()
+  $('#user-message').text('Failed to share Item')
+}
+
+const shareItemSuccess = (data) => {
+  const onShareItem = showItems({ items: data.share })
+  if (data.share.length !== 0) {
+    $('.message').show()
+    $('#user-message').text('Item shared successfully!')
+  } else {
+    $('.message').show()
+    $('#user-message').text('Create an item!')
+  }
+  $('.display-items').empty()
+  $('.display-items').append(onShareItem)
+}
 //
 const deleteItemSuccess = function (data) {
   numberOfItems -= 1
@@ -166,6 +184,8 @@ module.exports = {
   createItemFailure,
   showItemSuccess,
   showItemFailure,
+  shareItemFailure,
+  shareItemSuccess,
   showItems,
   showCompletedItems,
   deleteItemSuccess,
