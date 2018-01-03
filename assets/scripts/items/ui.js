@@ -82,9 +82,6 @@ const shareItemSuccess = (data) => {
   if (data.share.length !== 0) {
     $('.message').show()
     $('#user-message').text('Item shared successfully!')
-  } else {
-    $('.message').show()
-    $('#user-message').text('Create an item!')
   }
   $('.display-items').empty()
   $('.display-items').append(onShareItem)

@@ -16,8 +16,15 @@ const onShareItem = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
   data.item.active = true
-  api.createItem(data)
+  api.shareItem(data)
     .then(ui.shareItemSuccess)
+    .catch(ui.shareItemFailure)
+}
+
+const onShowShare = function (event) {
+  event.preventDefault()
+  api.shareItem()
+    .then(ui.checkActive)
     .catch(ui.shareItemFailure)
 }
 
@@ -103,6 +110,7 @@ const addHandlers = function (event) {
   $('#show-item').on('click', onShowItem)
   $('#show-completed-items').on('click', onShowCompletedItems)
   $('#share-item').on('click', onShareItem)
+  $('#show-share').on('click', onShowShare)
   $(document.body).on('submit', '.delete-item', onDeleteItem)
   $(document.body).on('submit', '.delete-completed-item', onDeleteCompletedItem)
   // $('#delete-Item').on('submit', clearItemForm)
@@ -118,5 +126,6 @@ module.exports = {
   onUpdateItem,
   onDeleteItem,
   onShowItem,
+  onShowShare,
   onShowCompletedItems
 }
