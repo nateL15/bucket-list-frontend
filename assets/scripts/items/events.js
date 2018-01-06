@@ -15,16 +15,16 @@ const onCreateItem = function (event) {
 const onShareItem = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  data.item.active = true
   api.shareItem(data)
     .then(ui.shareItemSuccess)
     .catch(ui.shareItemFailure)
 }
 
 const onShowShare = function (event) {
+  // const data = getFormFields(this)
   event.preventDefault()
-  api.shareItem()
-    .then(ui.checkActive)
+  api.showShare()
+    .then(ui.checkActiveShare)
     .catch(ui.shareItemFailure)
 }
 
@@ -81,47 +81,20 @@ const onUpdateActiveState = function (event) {
     .catch(ui.updateItemStateFailure)
 }
 
-// const clearItemForm = function () {
-//   $('#save-Item').trigger('reset')
-//   $('#get-Item').trigger('reset')
-//   $('#delete-Item').trigger('reset')
-//   $('#update-Item').trigger('reset')
-// }
-//
-// const hideItemForm = function () {
-//   $('#update-Item').hide()
-//   $('#get-Item').hide()
-//   $('#delete-Item').hide()
-//   $('#save-Item').hide()
-// }
-// $(document).ready(function () {
-//   $('button').click(function () {
-//     $('#todo').append('<ul>' + $('input[name=item[name]]').val() + " <a href='#' class='close' aria-hidden='true'>&times;</a></ul>")
-//   })
-//   $('body').on('click', '#todo a', function () {
-//     $(this).closest('ul').remove()
-//   })
-// })
-// hideItemForm()
-
 const addHandlers = function (event) {
   $('.create-item').on('submit', onCreateItem)
-  // $('#save-Item').on('submit', clearItemForm)
   $('#show-item').on('click', onShowItem)
   $('#show-completed-items').on('click', onShowCompletedItems)
   $('#share-item').on('click', onShareItem)
   $('#show-share').on('click', onShowShare)
   $(document.body).on('submit', '.delete-item', onDeleteItem)
   $(document.body).on('submit', '.delete-completed-item', onDeleteCompletedItem)
-  // $('#delete-Item').on('submit', clearItemForm)
   $(document.body).on('submit', '.update-item', onUpdateItem)
   $(document.body).on('submit', '.update-active-status', onUpdateActiveState)
-  // $('#update-Item').on('submit', clearItemForm)
 }
 
 module.exports = {
   addHandlers,
-  // clearItemForm,
   onShareItem,
   onUpdateItem,
   onDeleteItem,

@@ -10,7 +10,6 @@ let numberOfCompleteItems = 0
 const findItems = function (data) {
   numberOfItems = 0
   numberOfCompleteItems = 0
-  // numberOfItems = data.items.length
   for (let i = 0; i < data.items.length; i++) {
     if (data.items[i].active === true) {
       numberOfItems += 1
@@ -78,15 +77,16 @@ const shareItemFailure = function (data) {
 }
 
 const shareItemSuccess = (data) => {
-  const onShareItem = showItems({ items: data.share })
-  if (data.share.length !== 0) {
+  const onShowShare = showItems({ items: data.items && data.items.private === false })
+  console.log(data)
+  if (data.items.length !== 0 && data.items.private === false) {
     $('.message').show()
-    $('#user-message').text('Item shared successfully!')
+    $('#user-message').text('Shared items retrieved!')
   }
   $('.display-items').empty()
-  $('.display-items').append(onShareItem)
+  $('.display-items').append(onShowShare)
 }
-//
+
 const deleteItemSuccess = function (data) {
   numberOfItems -= 1
   hideItemButton()
@@ -176,9 +176,27 @@ const checkActive = function (data) {
   }
 }
 
+const checkActiveShare = function (data) {
+  if (data.items.length === 0 && data.items.private === false) {
+    shareItemSuccess(data)
+  } else {
+    const activeItems = {
+      items: []
+    }
+    const allItems = data.items
+    for (let i = 0; i < allItems.length; i++) {
+      if (allItems[i].active === true) {
+        activeItems.items.push(allItems[i])
+      }
+      shareItemSuccess(activeItems)
+    }
+  }
+}
+
 module.exports = {
   createItemSuccess,
   createItemFailure,
+  checkActiveShare,
   showItemSuccess,
   showItemFailure,
   shareItemFailure,

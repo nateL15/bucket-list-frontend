@@ -1,9 +1,11 @@
 {{#each items as |item|}}
 
 
+
   <div class="show-item-data" data-id="{{item.id}}">
     <h1>Name: {{item.name}}</h1>
     <h2>Notes: {{item.notes}}</h2>
+    <h2>Private: {{item.private}}</h2>
 
   <form class="delete-item">
     <input type="submit" name="submit" value="Delete Item" class="delete-button">
@@ -15,6 +17,16 @@
   <input type="text" name="item[id]" class="delete-by-item-id" value={{item.id}} style="display: none">
   <input type="text" name="item[name]" class="update-name" placeholder="update name">
   <input type="text" name="item[notes]" class="update-notes" placeholder="update notes">
+  <br>
+  <input type="radio"
+     name="item[private]" value="true"
+     {{#if item.private}}checked="checked"{{/if}}>
+    <label>Private Item</label>
+
+    <input type="radio"
+     name="item[private]" value="false"
+     {{#unless item.private}}checked="checked"{{/unless}}>
+    <label>Share Item</label>
 </form>
 
 <form class="update-active-status">
@@ -23,11 +35,6 @@
   <input type="text" name="item[active]" class="update-item" value=true style="display: none">
 </form>
 
-<form class="update-active-status">
-  <input type="submit" name="submit" value="Share" class="update-status">
-  <input type="text" name="item[id]" class="delete-by-item-id" value={{item.id}} style="display: none">
-  <input type="text" name="item[active]" class="update-item" value=true style="display: none">
-</form>
 </div>
 
 {{/each}}

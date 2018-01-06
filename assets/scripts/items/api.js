@@ -14,8 +14,8 @@ const createItem = function (data) {
 
 const shareItem = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/shares' + data.item.id,
-    method: 'POST',
+    url: config.apiOrigin + '/items' + data.item.id,
+    method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -25,7 +25,7 @@ const shareItem = function (data) {
 
 const showShare = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/shares',
+    url: config.apiOrigin + '/items',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -44,6 +44,7 @@ const updateItem = function (data) {
     data
   })
 }
+
 //
 const showItem = function (data) {
   return $.ajax({
