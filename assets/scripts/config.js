@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://lit-escarpment-95569.herokuapp.com'
+    production: 'https://pacific-waters-58062.herokuapp.com/'
   }
 }
 
