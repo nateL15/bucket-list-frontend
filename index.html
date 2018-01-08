@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bucket List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+
+  <h1 class="title">Bucket List</h1>
+  <!-- Sign up and sign in container -->
+  <div class='sign-up-in'>
+    <div class="dropdown sign-up">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             sign up
+           </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <form id="sign-up">
+          <fieldset>
+            <input type="email" id="sign-up-email" name="credentials[email]" placeholder="Email">
+            <input type="password" id="sign-up-password" name="credentials[password]" placeholder="Password">
+            <input type="password" id="sign-up-password-confirmation" name="credentials[password_confirmation]" placeholder="Password Confirmation">
+            <button type="submit" class="btn btn-secondary">sign up</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+
+    <div class="dropdown sign-in">
+      <button class="btn btn-secondary dropdown-toggle in-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               sign in
+             </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <form id="sign-in">
+          <fieldset>
+            <input type="email" id="sign-in-email" name="credentials[email]" placeholder="Email">
+            <input type="password" id="sign-in-password" name="credentials[password]" placeholder="Password">
+            <button type="submit" class="btn btn-secondary">sign in</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <p class='auth-message'></p>
+  </div>
+
+<div class='message'>
+  <p id='user-message'></p>
+  <br>
+  <p id='item-message'></p>
+
+</div>
+
+
+
+  <!-- To Do list container -->
+  <div class='todo'>
+    <!-- create form -->
+    <div class="form-group">
+      <h1>Bucket <small>List</small></h1>
+    <form role="form" class='create-item'>
+      <fieldset>
+        <input type="text"  id='create-item' class="form-control" placeholder="Your Item" name="item[name]">
+        <input type="text" id='create-note' class="form-control" placeholder="Your Note" name="item[notes]">
+        <button type="submit" class="btn btn btn-primary">create item</button>
+      </fieldset>
+    </form>
+
+    <!-- show button -->
+    <button id="show-item" type="submit" class="btn btn btn-primary">show items</button>
+
+    <!-- show completed bucket items -->
+    <button id="show-completed-items" type="submit" class="btn btn btn-primary">show completed items!</button>
+
+    <!-- show shared items -->
+    <button id="show-share" type="submit" class="btn btn btn-primary">show shared items!</button>
+
+      </div>
+
+    <ul class="list-unstyled" id="todo"></ul>
+  </div>
+  <p class="display-items"></p>
+
+<!-- change password and sign out container -->
+  <div class='change-out'>
+    <div class="dropdown change-password">
+         <button class="btn btn-secondary dropdown-toggle change-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           change password
+         </button>
+         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+           <form id="change-password">
+             <fieldset>
+               <input type="password" id="old-password" name="passwords[old]" placeholder="Old">
+               <input type="password" id="new-password" name="passwords[new]" placeholder="New">
+               <button type="submit" class="btn btn-secondary">Change</button>
+             </fieldset>
+             </form>
+         </div>
+       </div>
+
+       <div class='sign-out'>
+
+          <button id='sign-out' type="button" class="btn btn-secondary">sign out</button>
+        </div>
+
+  </div>
+
+</body>
+
+</html>
