@@ -12,16 +12,7 @@ const onCreateItem = function (event) {
 }
 //
 
-const onShareItem = function (event) {
-  const data = getFormFields(this)
-  event.preventDefault()
-  api.shareItem(data)
-    .then(ui.shareItemSuccess)
-    .catch(ui.shareItemFailure)
-}
-
 const onShowShare = function (event) {
-  // const data = getFormFields(this)
   event.preventDefault()
   api.showShare()
     .then(ui.checkActiveShare)
@@ -36,7 +27,6 @@ const onShowItem = function (event) {
 }
 
 const onShowCompletedItems = function (event) {
-  // const data = getFormFields(this)
   event.preventDefault()
   api.showItem()
     .then(ui.checkState)
@@ -85,7 +75,6 @@ const addHandlers = function (event) {
   $('.create-item').on('submit', onCreateItem)
   $('#show-item').on('click', onShowItem)
   $('#show-completed-items').on('click', onShowCompletedItems)
-  $('#share-item').on('click', onShareItem)
   $('#show-share').on('click', onShowShare)
   $(document.body).on('submit', '.delete-item', onDeleteItem)
   $(document.body).on('submit', '.delete-completed-item', onDeleteCompletedItem)
@@ -95,7 +84,6 @@ const addHandlers = function (event) {
 
 module.exports = {
   addHandlers,
-  onShareItem,
   onUpdateItem,
   onDeleteItem,
   onShowItem,

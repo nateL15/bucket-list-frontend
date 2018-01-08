@@ -2,6 +2,7 @@
 
 const showItems = require('../templates/show-items.handlebars')
 const showCompletedItems = require('../templates/show-completed-items.handlebars')
+const showShareItems = require('../templates/show-shared-items.handlebars')
 const itemsApi = require('./api')
 
 let numberOfItems = 0
@@ -73,13 +74,12 @@ const showItemFailure = function (data) {
 
 const shareItemFailure = function (data) {
   $('.message').show()
-  $('#user-message').text('Failed to share Item')
+  $('#user-message').text('Failed to retrieve shared items')
 }
 
 const shareItemSuccess = (data) => {
-  const onShowShare = showItems({ items: data.items && data.items.private === false })
-  console.log(data)
-  if (data.items.length !== 0 && data.items.private === false) {
+  const onShowShare = showShareItems({ items: data.items })
+  if (data.items.length !== 0) {
     $('.message').show()
     $('#user-message').text('Shared items retrieved!')
   }
@@ -177,7 +177,7 @@ const checkActive = function (data) {
 }
 
 const checkActiveShare = function (data) {
-  if (data.items.length === 0 && data.items.private === false) {
+  if (data.items.length === 0) {
     shareItemSuccess(data)
   } else {
     const activeItems = {
@@ -185,7 +185,7 @@ const checkActiveShare = function (data) {
     }
     const allItems = data.items
     for (let i = 0; i < allItems.length; i++) {
-      if (allItems[i].active === true) {
+      if (allItems[i].private === false) {
         activeItems.items.push(allItems[i])
       }
       shareItemSuccess(activeItems)

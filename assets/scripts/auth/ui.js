@@ -84,7 +84,7 @@ const signOutSuccess = function () {
   $('#user-message').text('Signed out! Sign in to create list!')
   $('.change-out').hide()
   $('.todo').hide()
-  $('.display-items').hide()
+  $('.display-items').empty()
   $('.sign-up-in').show()
   $('.sign-up').show()
   $('#item-message').hide()

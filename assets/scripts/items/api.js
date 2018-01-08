@@ -12,20 +12,9 @@ const createItem = function (data) {
   })
 }
 
-const shareItem = function (data) {
-  return $.ajax({
-    url: config.apiOrigin + '/items' + data.item.id,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data
-  })
-}
-
 const showShare = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/items',
+    url: config.apiOrigin + '/privateFind',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -73,6 +62,5 @@ module.exports = {
   updateItem,
   showItem,
   deleteItem,
-  shareItem,
   showShare
 }
